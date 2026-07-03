@@ -1,0 +1,21 @@
+# Retro Phone Tools
+
+> Unlock-code calculators (Huawei, ZTE, Alcatel, BlackBerry) and Nokia DCT4 firmware tools, free and 100% in-browser.
+
+Free, client-side (no upload) tools for retro phones and modems.
+
+## Unlock code calculators (from IMEI)
+- [Huawei unlock code calculator (USB modems)](https://robyrew.github.io/retro-phone-tools/unlock/huawei/): Generate the Unlock and Flash codes for old Huawei USB modems from the IMEI. Free and in-browser.
+- [ZTE unlock code calculator (NCK / SPCK)](https://robyrew.github.io/retro-phone-tools/unlock/zte/): Compute NCK and SPCK for ZTE modems (old models and firmware B03/B04) from the IMEI, free and in-browser.
+- [Alcatel unlock code calculator (NCK / SPCK)](https://robyrew.github.io/retro-phone-tools/unlock/alcatel/): Compute NCK and SPCK for old Alcatel handsets (C700, C825, S853…) from the IMEI. Free, in-browser.
+- [BlackBerry unlock code calculator (MEP / PRD)](https://robyrew.github.io/retro-phone-tools/unlock/blackberry/): Generate the 5 MEP candidates for BlackBerry from the MEP/PRD and IMEI. 231 MEP and ~7000 PRD. In-browser.
+
+## Nokia DCT4 firmware tools
+- [Decrypt Nokia DCT4 firmware (MCU/PPM) online](https://robyrew.github.io/retro-phone-tools/firmware/decrypt/): Decrypt Nokia DCT4 firmware ROMs (MCU and PPM) and detect the CryptKey, all in-browser. Verified against the reference binary.
+- [Extract tones & assets from Nokia DCT4 firmware](https://robyrew.github.io/retro-phone-tools/firmware/extract/): Scan a decrypted DCT4 ROM and extract MIDI, WAV, SMAF, iMelody tones and more. Free, in-browser.
+- [Convert Nokia MThc tone to standard MIDI](https://robyrew.github.io/retro-phone-tools/firmware/mthc/): Convert a compressed Nokia MThc tone into a standard downloadable MIDI file. Experimental, in-browser.
+
+## Notes
+- The unlock calculators cover OLD Huawei/ZTE USB modems and legacy Alcatel/BlackBerry handsets; they do not work on modern smartphones.
+- The DCT4 firmware tools decrypt/inspect Nokia firmware; they do NOT SIM-unlock a phone. The CryptKey is unrelated to the IMEI.
+- Source: https://github.com/RobyRew/retro-phone-tools

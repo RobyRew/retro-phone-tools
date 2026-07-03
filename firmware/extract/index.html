@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es" data-slug="firmware/extract" data-title-key="p.ext.title" data-desc-key="p.ext.desc">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Extraer tonos y recursos de firmware Nokia DCT4 · Retro Phone Tools</title>
+<meta name="description" content="Escanea una ROM DCT4 descifrada y extrae tonos MIDI, WAV, SMAF, iMelody y más. Gratis, en el navegador." />
+<meta name="keywords" content="Nokia ringtones extract, extraer tonos Nokia, DCT4 melodies, MThc, MIDI, ToneSniffer, firmware assets" />
+<link rel="canonical" href="https://robyrew.github.io/retro-phone-tools/firmware/extract/" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Retro Phone Tools" />
+<meta property="og:title" content="Extraer tonos y recursos de firmware Nokia DCT4" />
+<meta property="og:description" content="Escanea una ROM DCT4 descifrada y extrae tonos MIDI, WAV, SMAF, iMelody y más. Gratis, en el navegador." />
+<meta property="og:url" content="https://robyrew.github.io/retro-phone-tools/firmware/extract/" />
+<meta property="og:image" content="https://robyrew.github.io/retro-phone-tools/assets/og.svg" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Extraer tonos y recursos de firmware Nokia DCT4" />
+<meta name="twitter:description" content="Escanea una ROM DCT4 descifrada y extrae tonos MIDI, WAV, SMAF, iMelody y más. Gratis, en el navegador." />
+<meta name="twitter:image" content="https://robyrew.github.io/retro-phone-tools/assets/og.svg" />
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="../../css/style.css" />
+<script>(function(){try{var t=localStorage.getItem('rpt-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;var l=localStorage.getItem('rpt-lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Extraer tonos y recursos de firmware Nokia DCT4","url":"https://robyrew.github.io/retro-phone-tools/firmware/extract/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","description":"Escanea una ROM DCT4 descifrada y extrae tonos MIDI, WAV, SMAF, iMelody y más. Gratis, en el navegador.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isAccessibleForFree":true,"inLanguage":["es","en"],"author":{"@type":"Person","name":"RobyRew"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://robyrew.github.io/retro-phone-tools/"},{"@type":"ListItem","position":2,"name":"Firmware DCT4","item":"https://robyrew.github.io/retro-phone-tools/firmware/extract/"},{"@type":"ListItem","position":3,"name":"Extraer tonos","item":"https://robyrew.github.io/retro-phone-tools/firmware/extract/"}]}</script>
+</head>
+<body data-tool="extract">
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="../../"><span aria-hidden="true">📟</span> Retro Phone Tools</a>
+    <div class="controls">
+      <button id="lang-btn" class="chip" aria-label="Language">🌐 <span id="lang-cur">ES</span></button>
+      <button id="theme-btn" class="chip" aria-label="Theme">🌓</button>
+    </div>
+  </div>
+  <div class="wrap"><nav class="mainnav" aria-label="tools"><a href="../../"  data-i18n="nav.home">Inicio</a><div class="nav-group"><span class="nav-h" data-i18n="nav.unlock">Códigos de desbloqueo</span><a href="../../unlock/huawei/"  data-i18n="p.hw.nav">Huawei</a><a href="../../unlock/zte/"  data-i18n="p.zte.nav">ZTE</a><a href="../../unlock/alcatel/"  data-i18n="p.alc.nav">Alcatel</a><a href="../../unlock/blackberry/"  data-i18n="p.bb.nav">BlackBerry</a></div><div class="nav-group"><span class="nav-h" data-i18n="nav.firmware">Firmware DCT4</span><a href="../../firmware/decrypt/"  data-i18n="p.dec.nav">Descifrar ROM</a><a href="../../firmware/extract/" aria-current="page" class="active" data-i18n="p.ext.nav">Extraer tonos</a><a href="../../firmware/mthc/"  data-i18n="p.mthc.nav">MThc → MIDI</a></div></nav></div>
+</header>
+<main id="main" class="wrap">
+<article class="tool"><nav class="crumbs" aria-label="breadcrumb"><a href="../../" data-i18n="nav.home">Inicio</a> › <span data-i18n="nav.firmware">Firmware DCT4</span> › <span data-i18n="p.ext.nav">Extraer tonos</span></nav>
+      <h1 data-i18n="p.ext.h1">Extraer tonos y recursos</h1>
+      <p class="lede" data-i18n="p.ext.intro">Sube una ROM DCT4 ya descifrada para sacar sus tonos y recursos embebidos (MIDI, WAV, SMAF, iMelody, MThc…). Descarga cada uno.</p>
+      <div class="panel"><label class="filepick"><input type="file" id="scan-file" /><span data-i18n="ui.chooseFile">Elegir archivo…</span></label>
+    <button type="button" class="calc" id="scan-run" disabled data-i18n="t.ext.run">Escanear</button><div class="results" id="scan-results" hidden></div></div>
+      <section class="howto"><h2 data-i18n="ui.howto">Cómo funciona</h2><p data-i18n="p.ext.how">Port de ToneSniffer; las extracciones son idénticas a la herramienta de referencia. Primero descifra la ROM en la pestaña anterior.</p></section>
+      <section class="related"><h2 data-i18n="ui.related">Otras herramientas</h2><div class="rel-links"><a href="../../unlock/huawei/"><span aria-hidden="true">📶</span> <span data-i18n="p.hw.nav">Huawei</span></a><a href="../../unlock/zte/"><span aria-hidden="true">📡</span> <span data-i18n="p.zte.nav">ZTE</span></a><a href="../../unlock/alcatel/"><span aria-hidden="true">📱</span> <span data-i18n="p.alc.nav">Alcatel</span></a><a href="../../unlock/blackberry/"><span aria-hidden="true">🔐</span> <span data-i18n="p.bb.nav">BlackBerry</span></a><a href="../../firmware/decrypt/"><span aria-hidden="true">🔓</span> <span data-i18n="p.dec.nav">Descifrar ROM</span></a><a href="../../firmware/mthc/"><span aria-hidden="true">🎼</span> <span data-i18n="p.mthc.nav">MThc → MIDI</span></a></div></section></article>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <p data-i18n="ui.privacy">Todo el cálculo ocurre en tu navegador. Nada se sube.</p>
+  <p class="small" data-i18n="foot.disclaimer">Proyecto educativo. Úsalo solo con dispositivos de tu propiedad. Algoritmos públicos y de dominio abierto.</p>
+  <p class="small"><a href="https://github.com/RobyRew/retro-phone-tools" rel="noopener">GitHub</a> · <a href="../../README.md">README</a></p>
+</div></footer>
+<script type="module" src="../../js/shell.js"></script>
+<script type="module" src="../../js/app.js"></script>
+</body>
+</html>

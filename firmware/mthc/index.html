@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es" data-slug="firmware/mthc" data-title-key="p.mthc.title" data-desc-key="p.mthc.desc">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Convertir tono Nokia MThc a MIDI estándar · Retro Phone Tools</title>
+<meta name="description" content="Convierte un tono comprimido Nokia MThc a un archivo MIDI estándar descargable. Experimental, en el navegador." />
+<meta name="keywords" content="MThc to MIDI, Nokia compressed MIDI, MThc decoder, MidiDecode, DCT4 ringtone convert" />
+<link rel="canonical" href="https://robyrew.github.io/retro-phone-tools/firmware/mthc/" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#0f766e" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Retro Phone Tools" />
+<meta property="og:title" content="Convertir tono Nokia MThc a MIDI estándar" />
+<meta property="og:description" content="Convierte un tono comprimido Nokia MThc a un archivo MIDI estándar descargable. Experimental, en el navegador." />
+<meta property="og:url" content="https://robyrew.github.io/retro-phone-tools/firmware/mthc/" />
+<meta property="og:image" content="https://robyrew.github.io/retro-phone-tools/assets/og.svg" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Convertir tono Nokia MThc a MIDI estándar" />
+<meta name="twitter:description" content="Convierte un tono comprimido Nokia MThc a un archivo MIDI estándar descargable. Experimental, en el navegador." />
+<meta name="twitter:image" content="https://robyrew.github.io/retro-phone-tools/assets/og.svg" />
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="../../css/style.css" />
+<script>(function(){try{var t=localStorage.getItem('rpt-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;var l=localStorage.getItem('rpt-lang');if(l)document.documentElement.lang=l;}catch(e){}})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Convertir tono Nokia MThc a MIDI estándar","url":"https://robyrew.github.io/retro-phone-tools/firmware/mthc/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","description":"Convierte un tono comprimido Nokia MThc a un archivo MIDI estándar descargable. Experimental, en el navegador.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isAccessibleForFree":true,"inLanguage":["es","en"],"author":{"@type":"Person","name":"RobyRew"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://robyrew.github.io/retro-phone-tools/"},{"@type":"ListItem","position":2,"name":"Firmware DCT4","item":"https://robyrew.github.io/retro-phone-tools/firmware/mthc/"},{"@type":"ListItem","position":3,"name":"MThc → MIDI","item":"https://robyrew.github.io/retro-phone-tools/firmware/mthc/"}]}</script>
+</head>
+<body data-tool="mthc">
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="../../"><span aria-hidden="true">📟</span> Retro Phone Tools</a>
+    <div class="controls">
+      <button id="lang-btn" class="chip" aria-label="Language">🌐 <span id="lang-cur">ES</span></button>
+      <button id="theme-btn" class="chip" aria-label="Theme">🌓</button>
+    </div>
+  </div>
+  <div class="wrap"><nav class="mainnav" aria-label="tools"><a href="../../"  data-i18n="nav.home">Inicio</a><div class="nav-group"><span class="nav-h" data-i18n="nav.unlock">Códigos de desbloqueo</span><a href="../../unlock/huawei/"  data-i18n="p.hw.nav">Huawei</a><a href="../../unlock/zte/"  data-i18n="p.zte.nav">ZTE</a><a href="../../unlock/alcatel/"  data-i18n="p.alc.nav">Alcatel</a><a href="../../unlock/blackberry/"  data-i18n="p.bb.nav">BlackBerry</a></div><div class="nav-group"><span class="nav-h" data-i18n="nav.firmware">Firmware DCT4</span><a href="../../firmware/decrypt/"  data-i18n="p.dec.nav">Descifrar ROM</a><a href="../../firmware/extract/"  data-i18n="p.ext.nav">Extraer tonos</a><a href="../../firmware/mthc/" aria-current="page" class="active" data-i18n="p.mthc.nav">MThc → MIDI</a></div></nav></div>
+</header>
+<main id="main" class="wrap">
+<article class="tool"><nav class="crumbs" aria-label="breadcrumb"><a href="../../" data-i18n="nav.home">Inicio</a> › <span data-i18n="nav.firmware">Firmware DCT4</span> › <span data-i18n="p.mthc.nav">MThc → MIDI</span></nav>
+      <h1 data-i18n="p.mthc.h1">MThc → MIDI</h1>
+      <p class="lede" data-i18n="p.mthc.intro">Sube un tono MThc (MIDI comprimido de Nokia DCT4) para convertirlo a MIDI estándar. Función experimental (port fiel de MidiDecode).</p>
+      <div class="panel"><label class="filepick"><input type="file" id="mthc-file" /><span data-i18n="ui.chooseFile">Elegir archivo…</span></label>
+    <button type="button" class="calc" id="mthc-run" disabled data-i18n="t.mthc.run">Convertir a MIDI</button><div class="results" id="mthc-results" hidden></div></div>
+      <section class="howto"><h2 data-i18n="ui.howto">Cómo funciona</h2><p data-i18n="p.mthc.how">Descompresor LZ + reensamblado de pistas MThd/MTrk. Marcado experimental: no verificado contra un tono real por falta de muestra.</p></section>
+      <section class="related"><h2 data-i18n="ui.related">Otras herramientas</h2><div class="rel-links"><a href="../../unlock/huawei/"><span aria-hidden="true">📶</span> <span data-i18n="p.hw.nav">Huawei</span></a><a href="../../unlock/zte/"><span aria-hidden="true">📡</span> <span data-i18n="p.zte.nav">ZTE</span></a><a href="../../unlock/alcatel/"><span aria-hidden="true">📱</span> <span data-i18n="p.alc.nav">Alcatel</span></a><a href="../../unlock/blackberry/"><span aria-hidden="true">🔐</span> <span data-i18n="p.bb.nav">BlackBerry</span></a><a href="../../firmware/decrypt/"><span aria-hidden="true">🔓</span> <span data-i18n="p.dec.nav">Descifrar ROM</span></a><a href="../../firmware/extract/"><span aria-hidden="true">🎵</span> <span data-i18n="p.ext.nav">Extraer tonos</span></a></div></section></article>
+</main>
+<footer class="site-footer"><div class="wrap">
+  <p data-i18n="ui.privacy">Todo el cálculo ocurre en tu navegador. Nada se sube.</p>
+  <p class="small" data-i18n="foot.disclaimer">Proyecto educativo. Úsalo solo con dispositivos de tu propiedad. Algoritmos públicos y de dominio abierto.</p>
+  <p class="small"><a href="https://github.com/RobyRew/retro-phone-tools" rel="noopener">GitHub</a> · <a href="../../README.md">README</a></p>
+</div></footer>
+<script type="module" src="../../js/shell.js"></script>
+<script type="module" src="../../js/app.js"></script>
+</body>
+</html>

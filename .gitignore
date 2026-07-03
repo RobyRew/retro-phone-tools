@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+# firmware inputs/outputs — never commit ROMs or extracted assets
+*.rom
+*.img
+out/

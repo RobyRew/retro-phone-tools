@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://robyrew.github.io/retro-phone-tools/sitemap.xml

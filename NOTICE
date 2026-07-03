@@ -1,0 +1,18 @@
+Retro Phone Tools — third-party attribution
+===========================================
+
+JavaScript/web ports of public, reverse-engineered algorithms:
+
+Unlock-code calculators (Huawei, ZTE, Alcatel, BlackBerry)
+  Ported from: github.com/alexanderritola/Go-Unlock-Code-Calculator (MIT)
+
+Nokia DCT4 firmware tools (decrypt, tone extraction, MThc→MIDI)
+  Ported from: gitlab.com/Postrediori/mobile-phone-tools
+    - dct4decrypt is based on decr.c / DCT4Crypt by g3gg0
+      (github.com/g3gg0/DCT4Crypt)
+    - ToneSniffer originates from wackypack/mtex (github.com/wackypack/mtex)
+  No licence is stated upstream for mobile-phone-tools; these are independent
+  reimplementations of the algorithms in JavaScript.
+
+The web front-end, build generator, and JavaScript in this repository are MIT
+licensed (see LICENSE).
