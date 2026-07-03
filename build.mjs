@@ -187,10 +187,10 @@ const t = (key, tag = 'span', attrs = '') => `<${tag} data-i18n="${key}"${attrs}
 
 function navHtml(cur) {
   const d = depthOf(cur.slug), r = rel(d);
-  const link = (slug, key, active) => `<a href="${r}${slug ? slug + '/' : ''}" ${active ? 'aria-current="page" class="active"' : ''} data-i18n="${key}">${esc(L[key].es)}</a>`;
+  const link = (slug, key, active, icon) => `<a href="${r}${slug ? slug + '/' : ''}"${active ? ' aria-current="page" class="active"' : ''}><span class="ni" aria-hidden="true">${icon}</span><span data-i18n="${key}">${esc(L[key].es)}</span></a>`;
   const groups = { unlock: PAGES.filter((p) => p.group === 'unlock'), firmware: PAGES.filter((p) => p.group === 'firmware') };
-  const grp = (g, labelKey) => `<div class="nav-group"><span class="nav-h" data-i18n="${labelKey}">${esc(L[labelKey].es)}</span>${groups[g].map((p) => link(p.slug, pk(p, 'nav'), p.slug === cur.slug)).join('')}</div>`;
-  return `<nav class="mainnav" aria-label="tools">${link('', 'nav.home', cur.slug === '')}${grp('unlock', 'nav.unlock')}${grp('firmware', 'nav.firmware')}</nav>`;
+  const grp = (g, labelKey) => `<div class="nav-group"><span class="nav-h" data-i18n="${labelKey}">${esc(L[labelKey].es)}</span>${groups[g].map((p) => link(p.slug, pk(p, 'nav'), p.slug === cur.slug, p.icon)).join('')}</div>`;
+  return `<nav class="sidebar-nav" aria-label="tools">${link('', 'nav.home', cur.slug === '', '🏠')}${grp('firmware', 'nav.firmware')}${grp('unlock', 'nav.unlock')}</nav>`;
 }
 
 function jsonLd(p) {
@@ -217,10 +217,9 @@ function jsonLd(p) {
 }
 
 function homeGrid() {
-  return `<div class="tool-grid">${PAGES.filter((p) => p.tool).map((p) => {
-    const r = '';
-    return `<a class="tool-card" href="${p.slug}/"><span class="ico" aria-hidden="true">${p.icon}</span><span class="tc-title" data-i18n="${pk(p, 'nav')}">${esc(L[pk(p, 'nav')].es)}</span><span class="tc-desc" data-i18n="${pk(p, 'desc')}">${esc(L[pk(p, 'desc')].es)}</span></a>`;
-  }).join('')}</div>`;
+  const card = (p) => `<a class="tool-card" href="${p.slug}/"><span class="ico" aria-hidden="true">${p.icon}</span><span class="tc-title" data-i18n="${pk(p, 'nav')}">${esc(L[pk(p, 'nav')].es)}</span><span class="tc-desc" data-i18n="${pk(p, 'desc')}">${esc(L[pk(p, 'desc')].es)}</span></a>`;
+  const section = (g, labelKey, icon) => `<section class="home-group"><h2><span aria-hidden="true">${icon}</span> <span data-i18n="${labelKey}">${esc(L[labelKey].es)}</span></h2><div class="tool-grid">${PAGES.filter((x) => x.group === g && x.tool).map(card).join('')}</div></section>`;
+  return `${section('firmware', 'nav.firmware', '📟')}${section('unlock', 'nav.unlock', '🔓')}`;
 }
 
 function relatedHtml(cur) {
@@ -240,7 +239,7 @@ function page(p) {
       <div class="panel">${TOOLS[p.tool]}</div>
       <section class="howto"><h2 data-i18n="ui.howto">${esc(L['ui.howto'].es)}</h2><p data-i18n="${pk(p, 'how')}">${esc(L[pk(p, 'how')].es)}</p></section>
       ${relatedHtml(p)}</article>`
-    : `<h1 data-i18n="p.home.h1">${esc(L['p.home.h1'].es)}</h1><p class="lede" data-i18n="p.home.intro">${esc(L['p.home.intro'].es)}</p>${homeGrid()}`;
+    : `<section class="hero"><h1 data-i18n="p.home.h1">${esc(L['p.home.h1'].es)}</h1><p class="lede" data-i18n="p.home.intro">${esc(L['p.home.intro'].es)}</p></section>${homeGrid()}`;
 
   return `<!doctype html>
 <html lang="es" data-slug="${KEY(p.slug)}" data-title-key="${titleKey}" data-desc-key="${descKey}">
@@ -273,20 +272,22 @@ ${jsonLd(p)}
 </head>
 <body${p.tool ? ` data-tool="${p.tool}"` : ''}>
 <a class="skip" href="#main">Saltar al contenido</a>
-<header class="topbar">
-  <div class="wrap bar">
-    <a class="brand" href="${r}"><span aria-hidden="true">📟</span> ${SITE.name}</a>
-    <div class="controls">
-      <button id="lang-btn" class="chip" aria-label="Language">🌐 <span id="lang-cur">ES</span></button>
-      <button id="theme-btn" class="chip" aria-label="Theme">🌓</button>
-    </div>
+<header class="appbar">
+  <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="sidebar"><span></span><span></span><span></span></button>
+  <a class="brand" href="${r}"><span class="logo" aria-hidden="true">📟</span> <span class="brand-t">${SITE.name}</span></a>
+  <div class="controls">
+    <button id="lang-btn" class="chip" aria-label="Language">🌐 <span id="lang-cur">ES</span></button>
+    <button id="theme-btn" class="chip icon-btn" aria-label="Theme"></button>
   </div>
-  <div class="wrap">${navHtml(p)}</div>
 </header>
-<main id="main" class="wrap">
+<div class="backdrop" id="backdrop" hidden></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">${navHtml(p)}</aside>
+  <main id="main" class="content">
 ${body}
-</main>
-<footer class="site-footer"><div class="wrap">
+  </main>
+</div>
+<footer class="site-footer"><div class="footer-inner">
   <p data-i18n="ui.privacy">${esc(L['ui.privacy'].es)}</p>
   <p class="small" data-i18n="foot.disclaimer">${esc(L['foot.disclaimer'].es)}</p>
   <p class="small"><a href="${SITE.repo}" rel="noopener">GitHub</a> · <a href="${r}README.md">README</a></p>

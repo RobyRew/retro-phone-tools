@@ -30,17 +30,18 @@
 </head>
 <body data-tool="mthc">
 <a class="skip" href="#main">Saltar al contenido</a>
-<header class="topbar">
-  <div class="wrap bar">
-    <a class="brand" href="../../"><span aria-hidden="true">📟</span> Retro Phone Tools</a>
-    <div class="controls">
-      <button id="lang-btn" class="chip" aria-label="Language">🌐 <span id="lang-cur">ES</span></button>
-      <button id="theme-btn" class="chip" aria-label="Theme">🌓</button>
-    </div>
+<header class="appbar">
+  <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="sidebar"><span></span><span></span><span></span></button>
+  <a class="brand" href="../../"><span class="logo" aria-hidden="true">📟</span> <span class="brand-t">Retro Phone Tools</span></a>
+  <div class="controls">
+    <button id="lang-btn" class="chip" aria-label="Language">🌐 <span id="lang-cur">ES</span></button>
+    <button id="theme-btn" class="chip icon-btn" aria-label="Theme"></button>
   </div>
-  <div class="wrap"><nav class="mainnav" aria-label="tools"><a href="../../"  data-i18n="nav.home">Inicio</a><div class="nav-group"><span class="nav-h" data-i18n="nav.unlock">Códigos de desbloqueo</span><a href="../../unlock/huawei/"  data-i18n="p.hw.nav">Huawei</a><a href="../../unlock/zte/"  data-i18n="p.zte.nav">ZTE</a><a href="../../unlock/alcatel/"  data-i18n="p.alc.nav">Alcatel</a><a href="../../unlock/blackberry/"  data-i18n="p.bb.nav">BlackBerry</a></div><div class="nav-group"><span class="nav-h" data-i18n="nav.firmware">Firmware DCT4</span><a href="../../firmware/decrypt/"  data-i18n="p.dec.nav">Descifrar ROM</a><a href="../../firmware/extract/"  data-i18n="p.ext.nav">Extraer tonos</a><a href="../../firmware/mthc/" aria-current="page" class="active" data-i18n="p.mthc.nav">MThc → MIDI</a></div></nav></div>
 </header>
-<main id="main" class="wrap">
+<div class="backdrop" id="backdrop" hidden></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"><nav class="sidebar-nav" aria-label="tools"><a href="../../"><span class="ni" aria-hidden="true">🏠</span><span data-i18n="nav.home">Inicio</span></a><div class="nav-group"><span class="nav-h" data-i18n="nav.firmware">Firmware DCT4</span><a href="../../firmware/decrypt/"><span class="ni" aria-hidden="true">🔓</span><span data-i18n="p.dec.nav">Descifrar ROM</span></a><a href="../../firmware/extract/"><span class="ni" aria-hidden="true">🎵</span><span data-i18n="p.ext.nav">Extraer tonos</span></a><a href="../../firmware/mthc/" aria-current="page" class="active"><span class="ni" aria-hidden="true">🎼</span><span data-i18n="p.mthc.nav">MThc → MIDI</span></a></div><div class="nav-group"><span class="nav-h" data-i18n="nav.unlock">Códigos de desbloqueo</span><a href="../../unlock/huawei/"><span class="ni" aria-hidden="true">📶</span><span data-i18n="p.hw.nav">Huawei</span></a><a href="../../unlock/zte/"><span class="ni" aria-hidden="true">📡</span><span data-i18n="p.zte.nav">ZTE</span></a><a href="../../unlock/alcatel/"><span class="ni" aria-hidden="true">📱</span><span data-i18n="p.alc.nav">Alcatel</span></a><a href="../../unlock/blackberry/"><span class="ni" aria-hidden="true">🔐</span><span data-i18n="p.bb.nav">BlackBerry</span></a></div></nav></aside>
+  <main id="main" class="content">
 <article class="tool"><nav class="crumbs" aria-label="breadcrumb"><a href="../../" data-i18n="nav.home">Inicio</a> › <span data-i18n="nav.firmware">Firmware DCT4</span> › <span data-i18n="p.mthc.nav">MThc → MIDI</span></nav>
       <h1 data-i18n="p.mthc.h1">MThc → MIDI</h1>
       <p class="lede" data-i18n="p.mthc.intro">Sube un tono MThc (MIDI comprimido de Nokia DCT4) para convertirlo a MIDI estándar. Función experimental (port fiel de MidiDecode).</p>
@@ -48,8 +49,9 @@
     <button type="button" class="calc" id="mthc-run" disabled data-i18n="t.mthc.run">Convertir a MIDI</button><div class="results" id="mthc-results" hidden></div></div>
       <section class="howto"><h2 data-i18n="ui.howto">Cómo funciona</h2><p data-i18n="p.mthc.how">Descompresor LZ + reensamblado de pistas MThd/MTrk. Marcado experimental: no verificado contra un tono real por falta de muestra.</p></section>
       <section class="related"><h2 data-i18n="ui.related">Otras herramientas</h2><div class="rel-links"><a href="../../unlock/huawei/"><span aria-hidden="true">📶</span> <span data-i18n="p.hw.nav">Huawei</span></a><a href="../../unlock/zte/"><span aria-hidden="true">📡</span> <span data-i18n="p.zte.nav">ZTE</span></a><a href="../../unlock/alcatel/"><span aria-hidden="true">📱</span> <span data-i18n="p.alc.nav">Alcatel</span></a><a href="../../unlock/blackberry/"><span aria-hidden="true">🔐</span> <span data-i18n="p.bb.nav">BlackBerry</span></a><a href="../../firmware/decrypt/"><span aria-hidden="true">🔓</span> <span data-i18n="p.dec.nav">Descifrar ROM</span></a><a href="../../firmware/extract/"><span aria-hidden="true">🎵</span> <span data-i18n="p.ext.nav">Extraer tonos</span></a></div></section></article>
-</main>
-<footer class="site-footer"><div class="wrap">
+  </main>
+</div>
+<footer class="site-footer"><div class="footer-inner">
   <p data-i18n="ui.privacy">Todo el cálculo ocurre en tu navegador. Nada se sube.</p>
   <p class="small" data-i18n="foot.disclaimer">Proyecto educativo. Úsalo solo con dispositivos de tu propiedad. Algoritmos públicos y de dominio abierto.</p>
   <p class="small"><a href="https://github.com/RobyRew/retro-phone-tools" rel="noopener">GitHub</a> · <a href="../../README.md">README</a></p>

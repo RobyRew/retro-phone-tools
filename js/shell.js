@@ -50,4 +50,18 @@ document.getElementById('lang-btn')?.addEventListener('click', () => {
   applyLang(LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length]);
 });
 
+// mobile nav drawer
+const mt = document.getElementById('menu-toggle');
+const bd = document.getElementById('backdrop');
+const sb = document.getElementById('sidebar');
+function setMenu(open) {
+  document.body.classList.toggle('menu-open', open);
+  mt?.setAttribute('aria-expanded', String(open));
+  if (bd) bd.hidden = !open;
+}
+mt?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+bd?.addEventListener('click', () => setMenu(false));
+sb?.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
 applyLang(lang);
